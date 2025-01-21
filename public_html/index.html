@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with Kalpesh landing page.">
+    <meta name="author" content="Kalpesh">
+    <title>Kalpesh Borse | Portfolio</title>
+    <!-- font icons -->
+    <link rel="icon" type="image/png" href="assets/imgs/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="assets/imgs/favicon.svg" />
+    <link rel="shortcut icon" href="assets/imgs/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/imgs/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Kalpesh-Portfolio" />
+    <link rel="manifest" href="assets/imgs/site.webmanifest" />
+    <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
+    <!-- Bootstrap + Kalpesh main styles -->
+    <link rel="stylesheet" href="assets/css/kalpesh.css">
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+
+    <style>
+        /* General Styles */
+        .certification-card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .cert-thumbnail {
+            width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .view-cert-btn {
+            margin-top: 10px;
+            width: 100%;
+        }
+
+        /* Modal Styles */
+        .modal-content {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            max-width: 95%;
+            max-height: 90vh;
+            overflow: auto;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .cert-image {
+            width: auto;
+            /* Maintain original width */
+            max-width: 90%;
+            /* Adjust width within modal */
+            height: auto;
+            /* Maintain aspect ratio */
+            max-height: 80vh;
+            /* Prevent overflow on smaller screens */
+            border-radius: 10px;
+            display: block;
+            margin: auto;
+            /* Center the image */
+        }
+
+        @media (max-width: 768px) {
+            .cert-image {
+                max-width: 100%;
+                max-height: 70vh;
+            }
+        }
+
+
+        .close-btn {
+            margin-top: 15px;
+            width: 100px;
+        }
+
+        .project-card {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 10px;
+            transition: 0.3s ease-in-out;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            list-style: none;
+            padding: 0;
+        }
+
+        .tech-list li {
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+        }
+
+        .tech-list i {
+            font-size: 20px;
+            margin-right: 6px;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
+            color: white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            font-size: 30px;
+            line-height: 50px;
+            z-index: 1000;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            background: #128C7E;
+            color: #fff;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: green;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .hire-me-section {
+            background: url('assets/imgs/hire-me.jpg') no-repeat center center/cover;
+            position: relative;
+            padding: 100px 0;
+            text-align: center;
+            color: white;
+            /* border-radius: 10px; */
+            overflow: hidden;
+        }
+
+        .hire-me-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            /* Dark overlay for readability */
+            z-index: 1;
+        }
+
+        .hire-me-section .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hire-me-btn {
+            background: #ff4e50;
+            color: white;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            transition: all 0.3s ease-in-out;
+            border: none;
+        }
+
+        .hire-me-btn:hover {
+            background: #f51330;
+            transform: scale(1.05);
+        }
+
+        .experience-box {
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            margin: 20px 0;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: 0.3s ease-in-out;
+        }
+
+        .experience-box:hover {
+            transform: scale(1.03);
+        }
+
+        .experience-box i {
+            font-size: 35px;
+            color: #ff3c00;
+            background: rgba(255, 60, 0, 0.1);
+            padding: 20px;
+            border-radius: 50%;
+            margin-right: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+        }
+
+
+        .experience-box .content {
+            flex-grow: 1;
+        }
+
+        .experience-box.left {
+            justify-content: flex-start;
+            text-align: left;
+        }
+
+        .experience-box.right {
+            justify-content: flex-end;
+            text-align: right;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .experience-box {
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+            }
+
+            .experience-box i {
+                margin-bottom: 10px;
+            }
+        }
+
+        .progress {
+            height: 8px;
+            border-radius: 4px;
+            background: #e0e0e0;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            transition: width 2s ease-in-out;
+        }
+
+        #contact {
+            background: url('assets/imgs/contactbg.jpg') no-repeat center center/cover;
+            padding: 80px 0;
+        }
+    </style>
+
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+    <a href="https://wa.me/+917020210543" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <header class="header">
+        <div class="container">
+            <ul class="social-icons pt-3">
+                <li class="social-item"><a class="social-link text-light"
+                        href="https://www.linkedin.com/in/kalpeshborse" target="_blank"><i class="fab fa-linkedin"
+                            aria-hidden="true"></i></a></li>
+                <li class="social-item"><a class="social-link text-light" href="https://github.com/kalpeshborse105"
+                        target="_blank"><i class="fab fa-github" aria-hidden="true"></i></a></li>
+                <li class="social-item"><a class="social-link text-light" href="https://wa.me/917020210543"
+                        target="_blank"><i class="fab fa-whatsapp" aria-hidden="true"></i></a></li>
+                <li class="social-item"><a class="social-link text-light" href="https://t.me/kalpeshborse"
+                        target="_blank"><i class="fab fa-telegram-plane" aria-hidden="true"></i></a></li>
+            </ul>
+
+
+            <div class="header-content">
+                <h4 class="header-subtitle">Hello, I am</h4>
+                <h1 class="header-title">Kalpesh Borse</h1>
+                <h6 class="header-mono">Full Stack Developer | Web Designer</h6>
+                <a href="assets/Kalpesh Borse resume.pdf"><button class="btn btn-primary btn-rounded"><i
+                            class="ti-printer pr-2"></i>Print Resume</button></a>
+
+            </div>
+        </div>
+    </header>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-white" data-spy="affix" data-offset-top="510">
+        <div class="container">
+            <!-- Brand Logo (Visible on Mobile) -->
+            <!-- <a class="navbar-brand" href="#home">
+            <h3 class="brand-img" width="40">KB</h3>
+        </a> -->
+
+            <!-- Menu Toggle Button -->
+            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse mt-sm-20 navbar-collapse" id="navbarSupportedContent">
+                <!-- Left Side Menu -->
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#portfolio" class="nav-link">Portfolio</a>
+                    </li>
+
+                </ul>
+
+                <!-- Brand Section -->
+                <ul class="navbar-nav brand">
+                    <img src="assets/imgs/web-app-manifest-512x512.png" alt="Kalpesh Borse" class="brand-img">
+                    <li class="brand-txt">
+                        <h5 class="brand-title">Kalpesh Borse</h5>
+                        <div class="brand-subtitle">Full Stack Developer | Web Designer</div>
+                    </li>
+                </ul>
+
+                <!-- Right Side Menu -->
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a href="#services" class="nav-link">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#projects" class="nav-link">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contact" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div id="about" class="row about-section">
+            <div class="col-lg-4 about-card">
+                <h3 class="font-weight-light">Who am I ?</h3>
+                <span class="line mb-5"></span>
+                <h5 class="mb-4">A Full Stack Developer & Web Designer</h5>
+                <p class="mt-20">I am a dynamic and results-oriented Full Stack Developer with hands-on experience in
+                    Python, Django, and MySQL, along with strong expertise in scalable web applications, RESTful API
+                    development, and cloud deployment. Passionate about designing seamless user experiences and creating
+                    efficient backend solutions.</p>
+                <a href="assets/Kalpesh Borse resume.pdf" class="btn btn-outline-danger mt-4" download>
+                    <i class="ti-download"></i> Download My Resume
+                </a>
+
+            </div>
+            <div class="col-lg-4 about-card">
+                <h3 class="font-weight-light">Personal Info</h3>
+                <span class="line mb-5"></span>
+                <ul class="mt40 info list-unstyled">
+                    <li><i class="fas fa-birthday-cake text-danger"></i> <span>Birthdate</span> : 10-May-1997</li>
+                    <li><i class="fas fa-envelope text-primary"></i> <span>Email</span> : <a
+                            href="mailto:kalpeshborse105@gmail.com">kalpeshborse105@gmail.com</a></li>
+                    <li><i class="fas fa-phone-alt text-success"></i> <span>Phone</span> : <a
+                            href="tel:+917020210543">+91-7020210543</a></li>
+                    <li><i class="fab fa-linkedin text-info"></i> <span>LinkedIn</span> : <a
+                            href="https://www.linkedin.com/in/kalpeshborse"
+                            target="_blank">linkedin.com/in/kalpeshborse</a></li>
+                    <li><i class="fab fa-github text-dark"></i> <span>GitHub</span> : <a
+                            href="https://github.com/kalpeshborse105" target="_blank">github.com/kalpeshborse105</a>
+                    </li>
+                    <li><i class="fab fa-telegram-plane text-primary"></i> <span>Telegram</span> : <a
+                            href="https://t.me/kalpeshborse" target="_blank">t.me/kalpeshborse</a></li>
+                    <li><i class="fab fa-whatsapp text-success"></i> <span>WhatsApp</span> : <a
+                            href="https://wa.me/917020210543" target="_blank">Chat on WhatsApp</a></li>
+                    <li><i class="fas fa-map-marker-alt text-danger"></i> <span>Address</span> : 104 - Laxminarayan
+                        Tower <br>
+                        Behind Nilayam Theater, Sadashiv Peth <br>Pune, MH-411030</li>
+                </ul>
+            </div>
+
+            <div class="col-lg-4 about-card">
+                <h3 class="font-weight-light">My Expertise</h3>
+                <span class="line mb-5"></span>
+                <div class="row">
+                    <div class="col-1 text-danger pt-1"><i class="ti-widget icon-lg"></i></div>
+                    <div class="col-10 ml-auto mr-3">
+                        <h6>Full Stack Web Development</h6>
+                        <p class="subtitle">Proficient in Python, Django, React.js, and MySQL for scalable applications.
+                        </p>
+                        <hr>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-1 text-danger pt-1"><i class="ti-paint-bucket icon-lg"></i></div>
+                    <div class="col-10 ml-auto mr-3">
+                        <h6>Web Designing</h6>
+                        <p class="subtitle">Experienced in creating user-friendly and responsive web interfaces.</p>
+                        <hr>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-1 text-danger pt-1"><i class="ti-server icon-lg"></i></div>
+                    <div class="col-10 ml-auto mr-3">
+                        <h6>Cloud & AWS Deployment</h6>
+                        <p class="subtitle">Deploying and managing web applications on AWS cloud infrastructure.</p>
+                        <hr>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-1 text-danger pt-1"><i class="ti-bar-chart icon-lg"></i></div>
+                    <div class="col-10 ml-auto mr-3">
+                        <h6>Database Management</h6>
+                        <p class="subtitle">Expertise in MySQL, SQL optimization, and data security.</p>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Technologies Section -->
+    <section class="section text-center" id="portfolio">
+        <div class="container">
+            <h2 class="mb-5"><span class="text-danger">Technologies</span> I Use</h2>
+            <div class="row">
+                <!-- Programming Languages -->
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="pull-left">
+                                <h4 class="mt-2"><i class="fas fa-code"></i> Programming Languages</h4>
+                                <span class="line"></span>
+                            </div>
+                        </div>
+                        <div class="card-body pb-2">
+                            <h6><i class="fab fa-python text-danger"></i> Python & Django</h6>
+                            <div class="progress mb-3">
+                                <div class="progress-bar bg-danger progress-animate" role="progressbar" data-value="95%"
+                                    aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <h6><i class="fab fa-js-square text-warning"></i> JavaScript & React.js</h6>
+                            <div class="progress mb-3">
+                                <div class="progress-bar bg-warning progress-animate" role="progressbar"
+                                    data-value="85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <h6><i class="fab fa-java text-primary"></i> Java (Spring Boot)</h6>
+                            <div class="progress mb-3">
+                                <div class="progress-bar bg-primary progress-animate" role="progressbar"
+                                    data-value="70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <h6><i class="fab fa-php text-info"></i> PHP</h6>
+                            <div class="progress mb-3">
+                                <div class="progress-bar bg-info progress-animate" role="progressbar" data-value="65%"
+                                    aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Other Technologies -->
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="pull-left">
+                                <h4 class="mt-2"><i class="fas fa-tools"></i> Other Technologies</h4>
+                                <span class="line"></span>
+                            </div>
+                        </div>
+                        <div class="card-body pb-2">
+                            <h6><i class="fas fa-database text-success"></i> MySQL & Database Management</h6>
+                            <div class="progress mb-3">
+                                <div class="progress-bar bg-success progress-animate" role="progressbar"
+                                    data-value="90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <h6><i class="fab fa-aws text-warning"></i> Cloud & AWS Deployment</h6>
+                            <div class="progress mb-3">
+                                <div class="progress-bar bg-warning progress-animate" role="progressbar"
+                                    data-value="80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <h6><i class="fas fa-paint-brush text-danger"></i> Web Development & UI/UX Design</h6>
+                            <div class="progress mb-3">
+                                <div class="progress-bar bg-danger progress-animate" role="progressbar" data-value="88%"
+                                    aria-valuenow="88" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <h6><i class="fab fa-android text-success"></i> Android Development</h6>
+                            <div class="progress mb-3">
+                                <div class="progress-bar bg-success progress-animate" role="progressbar"
+                                    data-value="60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="section" id="portfolio">
+        <div class="container">
+            <h2 class="mb-5 text-center"><span class="text-danger">Work</span> Experience</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="experience-box left">
+                        <i class="fas fa-laptop-code"></i>
+                        <div class="content">
+                            <h6 class="title text-danger">2025 - Present</h6>
+                            <p>Freelance Full Stack Developer</p>
+                            <p class="subtitle">Developing e-service management and sports tournament systems using
+                                Python, Django, and MySQL, integrating secure authentication and AWS deployment.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="experience-box right">
+                        <i class="fas fa-code"></i>
+                        <div class="content">
+                            <h6 class="title text-danger">2024 - 2025</h6>
+                            <p>Python Developer - MAYU IT Planet Software</p>
+                            <p class="subtitle">Worked on sports tournament management systems, developed RESTful APIs,
+                                integrated payment systems, and implemented role-based access control.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="experience-box left">
+                        <i class="fas fa-project-diagram"></i>
+                        <div class="content">
+                            <h6 class="title text-danger">2024</h6>
+                            <p>Python Developer Intern - Smart Solution Pvt. Ltd</p>
+                            <p class="subtitle">Contributed to www.costing-expert.com and www.estisource.com, optimizing
+                                backend components and frontend user experience.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="experience-box right">
+                        <i class="fas fa-code-branch"></i>
+                        <div class="content">
+                            <h6 class="title text-danger">2023</h6>
+                            <p>Python Programming Intern - CodSoft Pvt. Ltd</p>
+                            <p class="subtitle">Designed interactive and responsive web pages using Python, HTML, CSS,
+                                JavaScript, and Bootstrap.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Education Section -->
+    <section class="section" id="portfolio">
+        <div class="container">
+            <h2 class="mb-5 text-center"><span class="text-danger">Education</span> History</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="experience-box left">
+                        <i class="fas fa-university"></i>
+                        <div class="content">
+                            <h6 class="title text-danger">2021 - 2023</h6>
+                            <p>Master of Science in Zoology</p>
+                            <p class="subtitle">Completed from Nutan Maratha College, Jalgaon, Maharashtra, with a CGPA
+                                of 6.75/10.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="experience-box right">
+                        <i class="fas fa-graduation-cap"></i>
+                        <div class="content">
+                            <h6 class="title text-danger">2015 - 2019</h6>
+                            <p>Bachelor of Science in Zoology</p>
+                            <p class="subtitle">Graduated from V.W.S Science College, Dhule, Maharashtra, with a CGPA of
+                                4.75/6.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="section bg-dark text-center">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-6 col-lg-3">
+                    <div class="row ">
+                        <div class="col-5 text-right text-light border-right py-3">
+                            <div class="m-auto"><i class="ti-alarm-clock icon-xl"></i></div>
+                        </div>
+                        <div class="col-7 text-left py-3">
+                            <h1 class="text-danger font-weight-bold font40">1500+</h1>
+                            <p class="text-light mb-1">Hours Worked</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="row">
+                        <div class="col-5 text-right text-light border-right py-3">
+                            <div class="m-auto"><i class="ti-layers-alt icon-xl"></i></div>
+                        </div>
+                        <div class="col-7 text-left py-3">
+                            <h1 class="text-danger font-weight-bold font40">20+</h1>
+                            <p class="text-light mb-1">Projects Completed</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="row">
+                        <div class="col-5 text-right text-light border-right py-3">
+                            <div class="m-auto"><i class="ti-face-smile icon-xl"></i></div>
+                        </div>
+                        <div class="col-7 text-left py-3">
+                            <h1 class="text-danger font-weight-bold font40">15+</h1>
+                            <p class="text-light mb-1">Happy Clients</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="row">
+                        <div class="col-5 text-right text-light border-right py-3">
+                            <div class="m-auto"><i class="ti-cup icon-xl"></i></div>
+                        </div>
+                        <div class="col-7 text-left py-3">
+                            <h1 class="text-danger font-weight-bold font40">100+</h1>
+                            <p class="text-light mb-1">Cups of Coffee</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="services">
+        <div class="container">
+            <h2 class="mb-5 pb-4 text-center">My <span class="text-danger">Services</span></h2>
+            <div class="row">
+                <!-- Full Stack Development -->
+                <div class="col-md-4 col-sm-6">
+                    <div class="card mb-5">
+                        <div class="card-header has-icon">
+                            <i class="ti-vector text-danger" aria-hidden="true"></i>
+                        </div>
+                        <div class="card-body px-4 py-3">
+                            <h5 class="mb-3 card-title text-dark">Full Stack Development</h5>
+                            <P class="subtitle">I specialize in building scalable web applications using Python, Django,
+                                React.js, and MySQL. From backend APIs to frontend interfaces, I ensure seamless
+                                functionality.</P>
+                        </div>
+                    </div>
+                </div>
+                <!-- Web Designing -->
+                <div class="col-md-4 col-sm-6">
+                    <div class="card mb-5">
+                        <div class="card-header has-icon">
+                            <i class="ti-write text-danger" aria-hidden="true"></i>
+                        </div>
+                        <div class="card-body px-4 py-3">
+                            <h5 class="mb-3 card-title text-dark">Web Designing</h5>
+                            <P class="subtitle">I create stunning and responsive websites using HTML, CSS, JavaScript,
+                                and Bootstrap. My designs are user-friendly and tailored to enhance user experience.</P>
+                        </div>
+                    </div>
+                </div>
+                <!-- Database Management -->
+                <div class="col-md-4 col-sm-6">
+                    <div class="card mb-5">
+                        <div class="card-header has-icon">
+                            <i class="ti-package text-danger" aria-hidden="true"></i>
+                        </div>
+                        <div class="card-body px-4 py-3">
+                            <h5 class="mb-3 card-title text-dark">Database Management</h5>
+                            <P class="subtitle">I design, optimize, and maintain databases using MySQL and SQL. I focus
+                                on data security, performance tuning, and efficient storage solutions.</P>
+                        </div>
+                    </div>
+                </div>
+                <!-- Cloud & AWS Deployment -->
+                <div class="col-md-4 col-sm-6">
+                    <div class="card mb-5">
+                        <div class="card-header has-icon">
+                            <i class="ti-map-alt text-danger" aria-hidden="true"></i>
+                        </div>
+                        <div class="card-body px-4 py-3">
+                            <h5 class="mb-3 card-title text-dark">Cloud & AWS Deployment</h5>
+                            <P class="subtitle">I deploy and manage applications on AWS, ensuring reliability, security,
+                                and scalability. I have experience in EC2, S3, and cloud-based architectures.</P>
+                        </div>
+                    </div>
+                </div>
+                <!-- E-commerce Development -->
+                <div class="col-md-4 col-sm-6">
+                    <div class="card mb-5">
+                        <div class="card-header has-icon">
+                            <i class="ti-bar-chart text-danger" aria-hidden="true"></i>
+                        </div>
+                        <div class="card-body px-4 py-3">
+                            <h5 class="mb-3 card-title text-dark">E-commerce Development</h5>
+                            <P class="subtitle">I develop secure and feature-rich e-commerce platforms with payment
+                                gateway integration, real-time order tracking, and user dashboards.</P>
+                        </div>
+                    </div>
+                </div>
+                <!-- API & Backend Development -->
+                <div class="col-md-4 col-sm-6">
+                    <div class="card mb-5">
+                        <div class="card-header has-icon">
+                            <i class="ti-support text-danger" aria-hidden="true"></i>
+                        </div>
+                        <div class="card-body px-4 py-3">
+                            <h5 class="mb-3 card-title text-dark">API & Backend Development</h5>
+                            <P class="subtitle">I create RESTful APIs using Django and Node.js, ensuring high
+                                performance, security, and scalability for web and mobile applications.</P>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- <section class="section bg-custom-gray" id="price">
+        <div class="container">
+            <h1 class="mb-5"><span class="text-danger">Packs</span> Pricing</h1>
+            <div class="row align-items-center">
+                <div class="col-md-6 col-lg-3">
+                    <div class="price-card text-center mb-4">
+                        <h3 class="price-card-title">Free</h3>
+                        <div class="price-card-cost">
+                            <sup class="ti-money"></sup>
+                            <span class="num">0</span>
+                            <span class="date">MO</span>
+                        </div>
+                        <ul class="list">
+                            <li class="list-item">5 <span class="text-muted">Project</span></li>
+                            <li class="list-item">1GB <span class="text-muted">Storage</span></li>
+                            <li class="list-item"><span class="text-muted">No Domain</span></li>
+                            <li class="list-item">1 <span class="text-muted">User</span></li>
+                        </ul>
+                        <button class="btn btn-primary btn-rounded w-lg">Subscribe</button>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="price-card text-center mb-4">
+                        <h3 class="price-card-title">Basic</h3>
+                        <div class="price-card-cost">
+                            <sup class="ti-money"></sup>
+                            <span class="num">10</span>
+                            <span class="date">MO</span>
+                        </div>
+                        <ul class="list">
+                            <li class="list-item">50 <span class="text-muted">Project</span></li>
+                            <li class="list-item">10GB <span class="text-muted">Storage</span></li>
+                            <li class="list-item">1<span class="text-muted">Domain</span></li>
+                            <li class="list-item">5 <span class="text-muted">User</span></li>
+                        </ul>
+                        <button class="btn btn-primary btn-rounded w-lg">Subscribe</button>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="price-card text-center price-card-requried mb-4">
+                        <h3 class="price-card-title">Exclusive</h3>
+                        <div class="price-card-cost">
+                            <sup class="ti-money"></sup>
+                            <span class="num">25</span>
+                            <span class="date">MO</span>
+                        </div>
+                        <ul class="list">
+                            <li class="list-item">150 <span class="text-muted">Project</span></li>
+                            <li class="list-item">15GB <span class="text-muted">Storage</span></li>
+                            <li class="list-item">5<span class="text-muted"> Domain</span></li>
+                            <li class="list-item">15<span class="text-muted">User</span></li>
+                        </ul>
+                        <button class="btn btn-primary btn-rounded w-lg">Subscribe</button>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="price-card text-center mb-4">
+                        <h3 class="price-card-title">Pro</h3>
+                        <div class="price-card-cost">
+                            <sup class="ti-money"></sup>
+                            <span class="num">99</span>
+                            <span class="date">MO</span>
+                        </div>
+                        <ul class="list">
+                            <li class="list-item">500 <span class="text-muted">Project</span></li>
+                            <li class="list-item">1000GB <span class="text-muted">Storage</span></li>
+                            <li class="list-item">10<span class="text-muted"> Domain</span></li>
+                            <li class="list-item">Unlimite<span class="text-muted">User</span></li>
+                        </ul>
+                        <button class="btn btn-primary btn-rounded w-lg">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <section class="section bg-dark py-5 hire-me-section">
+        <div class="container text-center">
+            <h2 class="text-light mb-4 font-weight-bold">🚀 Ready to <span class="text-danger">Work with Me?</span></h2>
+            <p class="text-light mb-4">I am available for freelance projects. Let's build something amazing together!
+            </p>
+            <button class="btn btn-lg hire-me-btn" onclick="openWhatsApp()">Hire Me</button>
+        </div>
+    </section>
+
+    <section class="section" id="projects">
+        <div class="container">
+            <h2 class="text-center">My <span class="text-danger">Projects</span> </h2>
+            <p class="text-center">Showcasing my best work in full-stack development, cloud computing, and UI/UX.</p>
+
+            <div class="row">
+                <!-- Project 1 -->
+                <div class="col-md-6">
+                    <div class="project-card">
+                        <h5><span class="text-danger"><i class="fas fa-briefcase"></i> Aaple-E-Seva Kendra</span></h5>
+                        <p>E-service management system for document handling and secure authentication.</p>
+                        <ul class="tech-list mb-4">
+                            <li><i class="fab fa-python"></i> Python</li>
+                            <li><i class="fab fa-django"></i> Django</li>
+                            <li><i class="fas fa-database"></i> MySQL</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary mt-3">Demo</a>
+                        <a href="https://github.com/Kalpkrut/aapleeseva" class="btn btn-outline-danger mt-3"><i
+                                class="fab fa-github"></i> Code</a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="col-md-6">
+                    <div class="project-card">
+                        <h5><span class="text-danger"><span class="text-danger"><i class="fas fa-futbol"></i>
+                                    MayuSportAcademy</span></h5>
+                        <p>Sports tournament management system with user authentication and payment integration.</p>
+                        <ul class="tech-list mb-4">
+                            <li><i class="fab fa-python"></i> Python</li>
+                            <li><i class="fab fa-django"></i> Django</li>
+                            <li><i class="fab fa-react"></i> React.js</li>
+                            <li><i class="fas fa-database"></i> MySQL</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary mt-3">Demo</a>
+                        <a href="https://github.com/Kalpkrut/MayuSportAcademy"
+                            class="btn btn-outline-danger mt-3"><i class="fab fa-github"></i> Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <!-- Project 3 -->
+                <div class="col-md-6">
+                    <div class="project-card">
+                        <h5><span class="text-danger"><span class="text-danger"><i class="fas fa-shopping-cart"></i>
+                                    Shopee</span></h5>
+                        <p>A feature-rich e-commerce platform with secure payment and order tracking.</p>
+                        <ul class="tech-list mb-2">
+                            <li><i class="fab fa-html5"></i> HTML5</li>
+                            <li><i class="fab fa-css3"></i> CSS3</li>
+                            <li><i class="fab fa-react"></i> React.js</li>
+                            <li><i class="fab fa-python"></i> Django</li>
+                            <li><i class="fas fa-database"></i> MySQL</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary">Demo</a>
+                        <a href="https://github.com/kalpeshborse105/Shopee" class="btn btn-outline-danger"><i
+                                class="fab fa-github"></i> Code</a>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="col-md-6">
+                    <div class="project-card">
+                        <h5><span class="text-danger"><span class="text-danger"><i class="fas fa-store"></i>
+                                    Shopkart</span></h5>
+                        <p>Online shopping platform with cart, checkout, and secure payments.</p>
+                        <ul class="tech-list mb-4">
+                            <li><i class="fab fa-html5"></i> HTML</li>
+                            <li><i class="fab fa-css3"></i> CSS</li>
+                            <li><i class="fab fa-js"></i> JavaScript</li>
+                            <li><i class="fas fa-server"></i> Node.js</li>
+                            <li><i class="fas fa-database"></i> MySQL</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary">Demo</a>
+                        <a href="https://github.com/kalpeshborse105/shopkart" class="btn btn-outline-danger"><i
+                                class="fab fa-github"></i> Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <!-- Project 5 -->
+                <div class="col-md-6">
+                    <div class="project-card">
+                        <h5><span class="text-danger"><span class="text-danger"><i class="fas fa-robot"></i> AI
+                                    Assistant (Aether)</span></h5>
+                        <p>Personal AI-powered assistant for automation and productivity.</p>
+                        <ul class="tech-list mb-4">
+                            <li><i class="fab fa-python"></i> Python</li>
+                            <li><i class="fas fa-brain"></i> AI & NLP</li>
+                            <li><i class="fas fa-cloud"></i> Cloud Deployment</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary mt-4">Demo</a>
+                        <a href="https://github.com/kalpeshborse105/ai-aether" class="btn btn-outline-danger mt-4"><i
+                                class="fab fa-github"></i> Code</a>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="col-md-6">
+                    <div class="project-card">
+                        <h5><span class="text-danger"><span class="text-danger"><i class="fas fa-laptop-code"></i>
+                                    Portfolio Website</span></h5>
+                        <p>A sleek and professional portfolio website to showcase my projects and skills.</p>
+                        <ul class="tech-list mb-4">
+                            <li><i class="fab fa-html5"></i> HTML</li>
+                            <li><i class="fab fa-css3"></i> CSS</li>
+                            <li><i class="fab fa-js"></i> JavaScript</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary mt-4">Demo</a>
+                        <a href="https://github.com/kalpeshborse105/kalpesh-portfolio" class="btn btn-outline-danger mt-4"><i
+                                class="fab fa-github"></i> Code</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Certifications Section -->
+    <section class="section" id="certifications">
+        <div class="container">
+            <h2 class="mb-5 text-center">My <span class="text-danger">Certifications</span></h2>
+            <div class="row justify-content-center">
+
+                <!-- Master in Full Stack Development with AWS -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card certification-card">
+                        <div class="img-holder">
+                            <img src="assets/imgs/Master in full stack with AWS - kalpesh borse.jpg"
+                                class="img-fluid cert-thumbnail" alt="Full Stack AWS Certification">
+                        </div>
+                        <div class="content-holder">
+                            <h5 class="title mt-4 mt-3">Full Stack Developer with AWS</h5>
+                            <p><b>Issued by:</b> IT Vedant</p>
+                            <p><b>Year:</b> 2024</p>
+                            <button class="btn btn-outline-danger view-cert-btn"
+                                onclick="openModal('assets/imgs/Master in full stack with AWS - kalpesh borse.jpg')">
+                                View Certificate
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Web Developer Skill Training -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card certification-card">
+                        <div class="img-holder">
+                            <img src="assets/imgs/Web Developer Certificate Kalpesh Borse.jpg"
+                                class="img-fluid cert-thumbnail" alt="Web Developer Skill Training">
+                        </div>
+                        <div class="content-holder">
+                            <h5 class="title mt-4">Web Developer Skill Training</h5>
+                            <p><b>Issued by:</b> Skill India & NSDC</p>
+                            <p><b>Year:</b> 2022</p>
+                            <button class="btn btn-outline-danger view-cert-btn"
+                                onclick="openModal('assets/imgs/Web Developer Certificate Kalpesh Borse.jpg')">
+                                View Certificate
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Angular 14 Certification -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card certification-card">
+                        <div class="img-holder">
+                            <img src="assets/imgs/Angular Kalpesh Borse.jpg" class="img-fluid cert-thumbnail"
+                                alt="Angular 14 Certification">
+                        </div>
+                        <div class="content-holder">
+                            <h5 class="title mt-4">Angular 14 Certification</h5>
+                            <p><b>Issued by:</b> IT Vedant</p>
+                            <p><b>Year:</b> 2025</p>
+                            <button class="btn btn-outline-danger view-cert-btn"
+                                onclick="openModal('assets/imgs/Angular Kalpesh Borse.jpg')">
+                                View Certificate
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Web Design Advanced Certification -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card certification-card">
+                        <div class="img-holder">
+                            <img src="assets/imgs/Web Design Advance Kalpesh Borse.jpg" class="img-fluid cert-thumbnail"
+                                alt="Web Design Advanced Certification">
+                        </div>
+                        <div class="content-holder">
+                            <h5 class="title mt-4">Advanced Web Design</h5>
+                            <p><b>Issued by:</b> IT Vedant</p>
+                            <p><b>Year:</b> 2025</p>
+                            <button class="btn btn-outline-danger view-cert-btn"
+                                onclick="openModal('assets/imgs/Web Design Advance Kalpesh Borse.jpg')">
+                                View Certificate
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Web Design Basics Certification -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card certification-card">
+                        <div class="img-holder">
+                            <img src="assets/imgs/Web Design Basic Kalpesh Borse.jpg" class="img-fluid cert-thumbnail"
+                                alt="Web Design Basics Certification">
+                        </div>
+                        <div class="content-holder">
+                            <h5 class="title mt-4">Web Design Basics</h5>
+                            <p><b>Issued by:</b> IT Vedant</p>
+                            <p><b>Year:</b> 2025</p>
+                            <button class="btn btn-outline-danger view-cert-btn"
+                                onclick="openModal('assets/imgs/Web Design Basic Kalpesh Borse.jpg')">
+                                View Certificate
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SQL Essentials Certification -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card certification-card">
+                        <div class="img-holder">
+                            <img src="assets/imgs/SQL Essential  Bounus.jpg" class="img-fluid cert-thumbnail"
+                                alt="SQL Essentials Certification">
+                        </div>
+                        <div class="content-holder">
+                            <h5 class="title mt-4">SQL Essentials Certification</h5>
+                            <p><b>Issued by:</b> IT Vedant</p>
+                            <p><b>Year:</b> 2024</p>
+                            <button class="btn btn-outline-danger view-cert-btn"
+                                onclick="openModal('assets/imgs/SQL Essential Bonus.jpg')">
+                                View Certificate
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SQL Professional Certification -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card certification-card">
+                        <div class="img-holder">
+                            <img src="assets/imgs/SQL Professional Bonus.jpg" class="img-fluid cert-thumbnail"
+                                alt="SQL Professional Certification">
+                        </div>
+                        <div class="content-holder">
+                            <h5 class="title mt-4">SQL Professional Certification</h5>
+                            <p><b>Issued by:</b> IT Vedant</p>
+                            <p><b>Year:</b> 2024</p>
+                            <button class="btn btn-outline-danger view-cert-btn"
+                                onclick="openModal('assets/imgs/SQL Professional Bonus.jpg')">
+                                View Certificate
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Programming Foundation & SQL -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card certification-card">
+                        <div class="img-holder">
+                            <img src="assets/imgs/Fundamental SQL.jpg" class="img-fluid cert-thumbnail"
+                                alt="Programming Foundation & SQL">
+                        </div>
+                        <div class="content-holder">
+                            <h5 class="title mt-4">Programming Foundation & SQL</h5>
+                            <p><b>Issued by:</b> IT Vedant</p>
+                            <p><b>Year:</b> 2025</p>
+                            <button class="btn btn-outline-danger view-cert-btn"
+                                onclick="openModal('assets/imgs/Fundamental SQL.jpg')">
+                                View Certificate
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Modal for Viewing Certificate -->
+    <div id="certModal" class="modal">
+        <div class="modal-content">
+            <img id="certImage" class="cert-image" src="" alt="Certificate">
+            <button class="btn btn-danger close-btn" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="contact-form-card">
+                        <h4 class="contact-title">Send a message</h4>
+                        <form id="contactForm" class="p-4 border rounded shadow">
+                            <div class="form-group">
+                                <input class="form-control" id="name" type="text" placeholder="Name *" required>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" id="email" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="Email *" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" id="message" placeholder="Message *" rows="7"
+                                    required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="form-control btn btn-primary">Send Message</button>
+                            </div>
+                        </form>
+                        <div id="successPopup" class="alert alert-success text-center mt-3 d-none">
+                            ✅ Message Sent Successfully! We will contact you soon.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="contact-info-card">
+                        <h4 class="contact-title">Get in touch</h4>
+                        <div class="row mb-2">
+                            <div class="col-1 pt-1 mr-1">
+                                <i class="ti-mobile icon-md"></i>
+                            </div>
+                            <div class="col-10">
+                                <h6 class="d-inline">Phone: <br><span class="text-muted"><a
+                                    href="tel:+917020210543">+91-7020210543</a></span></h6>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-1 pt-1 mr-1">
+                                <i class="ti-map-alt icon-md"></i>
+                            </div>
+                            <div class="col-10">
+                                <h6 class="d-inline">Address:<br><span class="text-muted">104 - Laxminarayan Tower,
+                                        Behind Nilayam Theater, Sadashiv Peth, <br>Pune, MH-411030</span></h6>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-1 pt-1 mr-1">
+                                <i class="ti-email icon-md"></i>
+                            </div>
+                            <div class="col-10">
+                                <h6 class="d-inline">Email:<br><span class="text-muted"><a href="mailto:kalpeshborse105@gmail.com">kalpeshborse105@gmail.com</a>
+                                </span>
+                                </h6>
+                            </div>
+                        </div>
+                        <ul class="social-icons pt-4">
+                            <li class="social-item"><a class="social-link"
+                                    href="https://www.linkedin.com/in/kalpeshborse" target="_blank">
+                                    <i class="fab fa-linkedin"></i></a></li>
+                            <li class="social-item"><a class="social-link" href="https://github.com/kalpeshborse105"
+                                    target="_blank">
+                                    <i class="fab fa-github"></i></a></li>
+                            <li class="social-item"><a class="social-link" href="https://t.me/kalpeshborse"
+                                    target="_blank">
+                                    <i class="fab fa-telegram-plane"></i></a></li>
+                            <li class="social-item"><a class="social-link" href="https://wa.me/917020210543"
+                                    target="_blank">
+                                    <i class="fab fa-whatsapp"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer py-3">
+        <div class="container">
+            <p class="small mb-0 text-light text-center">
+                &copy;
+                <script>document.write(new Date().getFullYear())</script> Created With <i
+                    class="ti-heart text-danger"></i> By <a href="https://wa.me/917020210543" target="_blank"><span
+                        class="text-danger" title="Bootstrap 4 Themes and Dashboards">Kalpesh Borse</span></a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- core  -->
+    <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
+    <script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
+
+    <!-- bootstrap 3 affix -->
+    <script src="assets/vendors/bootstrap/bootstrap.affix.js"></script>
+
+    <!-- Isotope  -->
+    <script src="assets/vendors/isotope/isotope.pkgd.js"></script>
+
+    <!-- kalpesh js -->
+    <script src="assets/js/kalpesh.js"></script>
+    <!-- <script src="assets/js/smtp.js"></script> -->
+
+    <script>
+        // contact form
+        document.getElementById("contactForm").addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Get input values
+            let senderName = document.getElementById("name").value;
+            let senderEmail = document.getElementById("email").value;
+            let senderMessage = document.getElementById("message").value;
+
+            if (!senderName || !senderEmail || !senderMessage) {
+                alert("⚠️ Please fill in all required fields!");
+                return;
+            }
+
+            // Your WhatsApp number (Include country code, but NO "+" sign)
+            let whatsappNumber = "917020210543"; // Example: India (+91)
+
+            // Format message
+            let whatsappMessage = `Hello, I want to contact you!
+        🔹 Name: ${senderName}
+        🔹 Email: ${senderEmail}
+        🔹 Message: ${senderMessage}`;
+
+            // Encode message for URL
+            let encodedMessage = encodeURIComponent(whatsappMessage);
+
+            // Redirect to WhatsApp
+            window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, "_blank");
+        });
+        // hire me
+        function openWhatsApp() {
+            window.open('https://wa.me/+917020210543?text=Hello%20Kalpesh,%20I%20am%20interested%20in%20hiring%20you.', '_blank');
+        }
+        // certificate
+        function openModal(imageSrc) {
+            document.getElementById("certImage").src = imageSrc;
+            document.getElementById("certModal").style.display = "flex";
+        }
+
+        function closeModal() {
+            document.getElementById("certModal").style.display = "none";
+        }
+        document.addEventListener("DOMContentLoaded", function () {
+            const filterButtons = document.querySelectorAll(".filter-btn");
+            const portfolioItems = document.querySelectorAll(".portfolio-item");
+
+            filterButtons.forEach((btn) => {
+                btn.addEventListener("click", function () {
+                    const filter = this.getAttribute("data-filter");
+
+                    filterButtons.forEach((b) => b.classList.remove("active"));
+                    this.classList.add("active");
+
+                    portfolioItems.forEach((item) => {
+                        if (filter === "all" || item.classList.contains(filter)) {
+                            item.style.display = "block";
+                        } else {
+                            item.style.display = "none";
+                        }
+                    });
+                });
+            });
+        });
+        document.addEventListener("DOMContentLoaded", function () {
+            let sections = document.querySelectorAll("section");
+            let navLinks = document.querySelectorAll(".navbar-nav .nav-link");
+
+            window.addEventListener("scroll", () => {
+                let scrollY = window.scrollY;
+
+                sections.forEach((section) => {
+                    let sectionTop = section.offsetTop - 50;
+                    let sectionHeight = section.offsetHeight;
+                    let sectionId = section.getAttribute("id");
+
+                    if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                        navLinks.forEach((link) => {
+                            link.classList.remove("active");
+                            if (link.getAttribute("href").includes(sectionId)) {
+                                link.classList.add("active");
+                            }
+                        });
+                    }
+                });
+            });
+        });
+        document.addEventListener("DOMContentLoaded", function () {
+            let progressBars = document.querySelectorAll(".progress-animate");
+
+            progressBars.forEach(bar => {
+                let value = bar.getAttribute("data-value");
+                bar.style.width = value;
+            });
+        });
+    </script>
+</body>
+
+</html>
